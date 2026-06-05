@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Exception;
+
 class Cart
 {
     private array $items = [];
@@ -10,7 +12,7 @@ class Cart
     {
 
         if ($price < 0 || $quantity < 0 || trim($name) === '') {
-            return;
+            throw new Exception('Failed to add items.');
         }
 
         $this->items[] = [
