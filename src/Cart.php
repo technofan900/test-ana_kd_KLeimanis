@@ -11,7 +11,7 @@ class Cart
     public function addItem(string $name, float $price, int $quantity): void
     {
 
-        if ($price < 0 || $quantity < 0 || trim($name) === '') {
+        if ($price <= 0 || $quantity <= 0 || trim($name) === '') {
             throw new Exception('Failed to add items.');
         }
 

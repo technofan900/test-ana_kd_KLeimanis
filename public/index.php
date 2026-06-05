@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Preces nosaukums nedrīkst būt tukšs.';
     }
 
-    if ($priceFloat < 0) {
-        $errors[] = 'Cena nedrīkst būt negatīva.';
+    if ($priceFloat <= 0) {
+        $errors[] = 'Cena nedrīkst būt negatīva vai nulle.';
     }
 
     if (!$validator->isValidQuantity($quantityInt)) {
