@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-<?php print_r($_POST); ?>
 <main class="page">
     <section class="card">
         <h1>SimpleShop</h1>
