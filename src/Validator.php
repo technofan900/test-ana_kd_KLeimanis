@@ -11,7 +11,7 @@ class Validator
 
     public function isNotEmpty(string $value): bool
     {
-        return $value !== '';
+        return trim($value) !== '';
     }
 
     public function isValidQuantity(int $quantity): bool
