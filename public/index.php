@@ -23,6 +23,9 @@ $discountPercent = $_POST['discount_percent'] ?? '0';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $priceFloat = (float) $price;
     $quantityInt = (int) $quantity;
+    if(is_string($discountPercent)) {
+        $errors[] = 'Atlaide nedrkst būt burts.';
+    }
     $discountInt = (int) $discountPercent;
 
     if (!$validator->isNotEmpty($productName)) {
@@ -30,11 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($priceFloat <= 0) {
-        $errors[] = 'Cena nedrīkst būt negatīva vai nulle.';
+        $errors[] = 'Cena nedrīkst būt negatīva, nulle vai burti.';
     }
 
     if (!$validator->isValidQuantity($quantityInt)) {
-        $errors[] = 'Daudzumam ir jābūt lielākam par 0.';
+        $errors[] = 'Daudzumam ir jābūt lielākam par 0 un ciparam.';
     }
 
     if (!$validator->isNotEmpty($customerName)) {
@@ -73,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-
+<?php print_r($_POST); ?>
 <main class="page">
     <section class="card">
         <h1>SimpleShop</h1>
