@@ -13,11 +13,11 @@ $validator = new Validator();
 $errors = [];
 $result = null;
 
-$productName = $_POST['product_name'] ?? '';
+$productName = trim($_POST['product_name']) ?? '';
 $price = $_POST['price'] ?? '';
 $quantity = $_POST['quantity'] ?? '';
-$customerName = $_POST['customer_name'] ?? '';
-$email = $_POST['email'] ?? '';
+$customerName = trim($_POST['customer_name']) ?? '';
+$email = trim($_POST['email']) ?? '';
 $discountPercent = $_POST['discount_percent'] ?? '0';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
